@@ -1,15 +1,16 @@
 # My-scriptt
+
 --GUI
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Scripthub", "BloodTheme")
+local Window = Library.CreateLib("Scripthub", "Midnight")
 
 --MAIN
 local Main = Window:NewTab("Main")
 local MainSection = Main:NewSection("Main")
 
 
-MainSection:NewButton("Noclip", "Press Q to work", function()
-    loadstring(game:HttpGet('https://pastebin.com/YsvkQycq'))()
+MainSection:NewButton("Noclip", "Press N to enable/disable", function()
+    loadstring(game:HttpGet('https://github.com/Rollimonster/NoClip-roblox/blob/main/noclip'))()
 end)
 
 --LOCAL PLAYER
@@ -82,9 +83,24 @@ local Customizable UI = Window:NewTab("Customizable Ui")
 local OtherSection = Customizable UI:NewSection("CustomizableUi")
 
 
+Section:NewDropdown("DropdownText", "DropdownInf", {"Option 1", "Option 2", "Option 3"}, function(currentOption)
+    print(currentOption)
+end)
+
+
+Section:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(color)
+    print(color)
+    -- Second argument is the default color
+end)
+
+
+local Window = Library.CreateLib("TITLE", colors)
+
+
 for theme, color in pairs(themes) do
     Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
         Library:ChangeColor(theme, color3)
     end)
 end
 
+--customizable ui broken
